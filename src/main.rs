@@ -16,24 +16,33 @@ fn main() {}
 #[test]
 fn instructions() {
     println!(
-        "{:?}",
-        instructions::SourceUnitParser::new().parse("0x10 0xab shr")
+        "{}",
+        instructions::SourceUnitParser::new()
+            .parse("0x10     0xab shr")
+            .unwrap()
     );
     println!(
-        "{:?}",
-        instructions::SourceUnitParser::new().parse("add add")
+        "{}",
+        instructions::SourceUnitParser::new()
+            .parse("add add")
+            .unwrap()
     );
     println!(
-        "{:?}",
-        instructions::SourceUnitParser::new().parse("push1 push1")
+        "{}",
+        instructions::SourceUnitParser::new()
+            .parse("push1 push1")
+            .unwrap()
     );
     println!(
-        "{:?}",
-        instructions::SourceUnitParser::new().parse(
-            r#"
+        "{}",
+        instructions::SourceUnitParser::new()
+            .parse(
+                r#"
     sload
     dup3
     swap6
+
+
     dup2
     dup4
     gt
@@ -48,7 +57,8 @@ fn instructions() {
     dup4
     sstore
     "#
-        )
+            )
+            .unwrap()
     );
 }
 
