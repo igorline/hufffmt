@@ -17,19 +17,19 @@ fn main() {}
 fn instructions() {
     println!(
         "{:?}",
-        instructions::InstructionsParser::new().parse("10 ab shr")
+        instructions::SourceUnitParser::new().parse("0x10 0xab shr")
     );
     println!(
         "{:?}",
-        instructions::InstructionsParser::new().parse("add add")
+        instructions::SourceUnitParser::new().parse("add add")
     );
     println!(
         "{:?}",
-        instructions::InstructionsParser::new().parse("push1 push1")
+        instructions::SourceUnitParser::new().parse("push1 push1")
     );
     println!(
         "{:?}",
-        instructions::InstructionsParser::new().parse(
+        instructions::SourceUnitParser::new().parse(
             r#"
     sload
     dup3

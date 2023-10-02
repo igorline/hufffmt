@@ -1,9 +1,13 @@
 use crate::opcode::Opcode;
-use crate::instruction::{Instruction, WhitespaceKind};
+use crate::instruction::{Instruction, WhitespaceKind, SourceUnit};
 use ruint::aliases::*;
 use hex;
 
 grammar;
+
+pub SourceUnit: SourceUnit = {
+    Instructions* => SourceUnit(<>)
+}
 
 pub Instructions: Instruction = {
     <l:@L> <h:(Hex)*> <o: Opcode> <r:@R> => Instruction::new(h, o).into_span(l, r),

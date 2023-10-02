@@ -46,9 +46,11 @@ pub struct Span {
     pub end: usize,
 }
 
+#[derive(Debug)]
+pub struct SourceUnit(pub Vec<Instruction>);
+
 impl Instruction {
     pub fn new(data: Vec<U256>, kind: Opcode) -> Self {
-        println!("this");
         Instruction {
             data,
             ws: Whitespace::default(),
