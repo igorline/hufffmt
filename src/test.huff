@@ -1,0 +1,4 @@
+#define fn MAIN() = {
+  push1 0x10
+  0x10
+}

@@ -1,0 +1,16 @@
+[package]
+name = "hufffmt"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies] # <-- We added this and everything after!
+lalrpop = "0.20.0"
+
+[dependencies]
+const-hex = "1.9.0"
+hex = "0.4.3"
+lalrpop = "0.20.0"
+lalrpop-util = { version = "0.20.0", features = ["lexer"] }
+ruint = { version = "1.10.1", features = ["primitive-types"] }
