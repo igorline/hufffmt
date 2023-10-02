@@ -163,6 +163,6 @@ pub Opcode: Opcode = {
     "selfdestruct" => Opcode::Selfdestruct
 };
 
-Hex: U256 = { r"[0-9a-fx]+" => U256::from_str_radix(&<>.replace("0x", ""), 16).unwrap() }  
+Hex: U256 = { r"0x[0-9a-f]+" => U256::from_str_radix(&<>.replace("0x", ""), 16).unwrap() }  
 
 // vim: ft=rust

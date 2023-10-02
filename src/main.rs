@@ -21,6 +21,14 @@ fn instructions() {
     );
     println!(
         "{:?}",
+        instructions::InstructionsParser::new().parse("add add")
+    );
+    println!(
+        "{:?}",
+        instructions::InstructionsParser::new().parse("push1 push1")
+    );
+    println!(
+        "{:?}",
         instructions::InstructionsParser::new().parse(
             r#"
     sload
