@@ -4,12 +4,12 @@ use crate::opcode::Opcode;
 
 #[derive(Debug)]
 pub struct Comment {
-    text: String,
+    pub text: String,
 }
 
 #[derive(Debug)]
 pub struct DocComment {
-    text: String,
+    pub text: String,
 }
 
 #[derive(Debug)]
@@ -22,28 +22,28 @@ pub enum WhitespaceKind {
 
 #[derive(Debug)]
 pub struct Instruction {
-    data: Vec<U256>,
-    ws: Whitespace,
-    kind: Opcode,
-    span: Span,
+    pub data: Vec<U256>,
+    pub ws: Whitespace,
+    pub kind: Opcode,
+    pub span: Span,
 }
 
 #[derive(Debug)]
 pub struct HexItem {
-    value: U256,
-    whitespace: Whitespace,
+    pub value: U256,
+    pub whitespace: Whitespace,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct Whitespace {
-    whitespaces: Vec<WhitespaceKind>,
-    span: Span,
+    pub whitespaces: Vec<WhitespaceKind>,
+    pub span: Span,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct Span {
-    start: usize,
-    end: usize,
+    pub start: usize,
+    pub end: usize,
 }
 
 impl Instruction {
@@ -51,7 +51,7 @@ impl Instruction {
         println!("this");
         Instruction {
             data,
-            ws: Whitespace::new(),
+            ws: Whitespace::default(),
             kind,
             span: Span { start: 0, end: 0 },
         }
@@ -61,14 +61,5 @@ impl Instruction {
         self.span.start = start;
         self.span.end = end;
         self
-    }
-}
-
-impl Whitespace {
-    pub fn new() -> Self {
-        Whitespace {
-            whitespaces: vec![],
-            span: Span { start: 0, end: 0 },
-        }
     }
 }
