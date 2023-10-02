@@ -2,7 +2,7 @@ use std::fmt::Display;
 
 use ruint::aliases::U256;
 
-use crate::opcode::{Opcode, OpcodeFormatted};
+use crate::opcode::Opcode;
 
 #[derive(Debug)]
 pub struct Comment {
@@ -92,7 +92,7 @@ impl Display for Instruction {
                 hex::encode(get_bytes_slice_trimmed_zeros(&bytes))
             )?;
         }
-        write!(f, "{}", self.kind.format())?;
+        write!(f, "{}", self.kind.as_static_str())?;
         Ok(())
     }
 }

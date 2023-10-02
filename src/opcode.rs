@@ -298,12 +298,8 @@ pub enum Opcode {
     Extcodehash,
 }
 
-pub trait OpcodeFormatted {
-    fn format(&self) -> &'static str;
-}
-
-impl OpcodeFormatted for Opcode {
-    fn format(&self) -> &'static str {
+impl Opcode {
+    pub fn as_static_str(&self) -> &'static str {
         match self {
             Opcode::Lt => "lt",
             Opcode::Gt => "gt",
